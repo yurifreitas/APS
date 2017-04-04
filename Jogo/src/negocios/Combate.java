@@ -20,6 +20,7 @@ public class Combate {
     FightEspada espada = new FightEspada();
     FightFaca faca = new FightFaca();
     FightArcoeFlecha arco = new FightArcoeFlecha();
+    Fightnamao mao = new Fightnamao();
     
     public Combate(){
         lutador1 = new Rei();
@@ -76,10 +77,18 @@ public class Combate {
                 System.out.print(lutador2.getnome()+" HP = "+lutador2.getHP()+"\n");
                 break;
             }
+            if(i > 2 && i < 5){
+                lutador2.setFightbehavior(mao);
+                lutador1.setFightbehavior(arco);
+            }
+            if(lutador2.getHP()<50){
+                
+                lutador2.setFightbehavior(machado);
+                lutador1.setFightbehavior(mao);
             
-            lutador1.setFightbehavior(machado);
-            lutador2.setFightbehavior(faca);
-     
+            }
+            
+          
         
        }
     }
