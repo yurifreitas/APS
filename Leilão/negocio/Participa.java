@@ -20,8 +20,9 @@ public class Participa implements Observer {
     }
     @Override
     public void update(String nomep,double lance) {
-         System.out.println(this.nome+":  "+nomep +" acabou de dar o lance maior o lance de "+this.lance);
-       
+        
+         System.out.println(this.nome+":  "+nomep +" acabou de dar o lance vencedor "+lance+"maior que"+this.lance);
+        
     }
    
     public double getLance() {

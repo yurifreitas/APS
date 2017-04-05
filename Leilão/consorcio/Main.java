@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
         
         Consorcio consorcio = new Consorcio();
-        consorcio.setNome("BV Financeira");
+        consorcio.setNome("LEilão 1");
         
         
         Participa novoparticipante = new Participa("maria",100);

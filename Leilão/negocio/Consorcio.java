@@ -50,7 +50,18 @@ public class Consorcio implements Subject {
    
     public void addObserver(Observer observer) {
         this.participantes.add(observer);
-        this.notifyObservers();       
+        boolean ganhou= false;
+        double lanceganhador = this.participantes.get(this.participantes.size()-1).getLance();
+        for (int i = 0; i < participantes.size(); i++) {
+            Observer participante = participantes.get(i);
+        if(participante.getLance()<lanceganhador){
+         ganhou = true;
+            
+        }
+        if(ganhou == true){
+        this.notifyObservers();  
+        }
+    }
     }
     
     
