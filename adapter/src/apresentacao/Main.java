@@ -14,19 +14,17 @@ import negocios.SMS;
  * @author APLPoloNaval
  */
 public class Main {
+
     public static void main(String[] args) {
+
+        SMS sms = new SMS("igor", "OI", "mensagem teste");
+
         
-        
-    
-    SMS sms =new SMS("igor","OI","mensagem teste");
-    
-    sms.setOrigem("tim");
-    
-    AdapterTIM tim = new AdapterTIM(sms);
-    tim.sendSMS(sms);
-    AdapterOI oi = new AdapterOI(sms);
-    //oi.enviarSMS(sms);
-   
-    
+
+        AdapterTIM tim = new AdapterTIM(sms);
+        tim.sendSMS(sms);
+        AdapterOI oi = new AdapterOI(sms);
+        //oi.enviarSMS(sms);
+
     }
 }

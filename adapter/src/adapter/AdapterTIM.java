@@ -19,14 +19,14 @@ public class AdapterTIM implements SMSsender {
     public AdapterTIM(SMS sms) {
         this.sms = sms;
     }
-    
+
     public void setSms(SMS sms) {
         this.sms = sms;
     }
 
     @Override
     public boolean sendSMS(SMS sms) {
-        System.out.print(sms.getDestino()+"\n"+sms.getOrigem()+"\n"+sms.getTexto());
+        System.out.print(sms.getDestino() + "\n" + sms.getOrigem() + "\n" + sms.getTexto());
         return true;
     }
 

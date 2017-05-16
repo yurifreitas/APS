@@ -9,7 +9,11 @@ package negocios;
  *
  * @author APLPoloNaval
  */
-public interface SMSsender {
+public class TIM implements SMSsender{
 
-    public boolean sendSMS(SMS sms);
+    @Override
+    public boolean sendSMS(SMS sms) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
 }

@@ -10,6 +10,7 @@ package negocios;
  * @author APLPoloNaval
  */
 public class SMS {
+
     private String destino;
     private String origem;
     private String texto;
@@ -48,6 +49,5 @@ public class SMS {
     public String toString() {
         return "SMS{" + "destino=" + destino + ", origem=" + origem + ", texto=" + texto + '}';
     }
-    
-    
+
 }

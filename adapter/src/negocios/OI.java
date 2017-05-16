@@ -3,30 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adapter;
-
-import negocios.EnviarSMS;
-import negocios.SMS;
+package negocios;
 
 /**
  *
  * @author APLPoloNaval
  */
-public class AdapterOI implements EnviarSMS {
-
-    SMS sms;
-
-    public AdapterOI(SMS sms) {
-        this.setSms(sms);
-    }
-
-    public void setSms(SMS sms) {
-        this.sms = sms;
-    }
+public class OI implements EnviarSMS{
 
     @Override
     public void enviarSMS(String origem, String destino, String[] texto) {
-        System.out.print(origem + destino + texto);
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
-
+    
 }
