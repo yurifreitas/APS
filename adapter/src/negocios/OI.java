@@ -9,7 +9,11 @@ package negocios;
  *
  * @author APLPoloNaval
  */
-public class OI implements EnviarSMS{
+public class OI extends SMS implements EnviarSMS{
+
+    public OI(String destino, String origem, String texto) {
+        super(destino, origem, texto);
+    }
 
     @Override
     public void enviarSMS(String origem, String destino, String[] texto) {

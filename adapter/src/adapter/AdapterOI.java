@@ -6,15 +6,18 @@
 package adapter;
 
 import negocios.EnviarSMS;
+import negocios.OI;
 import negocios.SMS;
+import negocios.SMSsender;
 
 /**
  *
  * @author APLPoloNaval
  */
-public class AdapterOI implements EnviarSMS {
+public class AdapterOI implements SMSsender {
 
     SMS sms;
+    OI oi;
 
     public AdapterOI(SMS sms) {
         this.setSms(sms);
@@ -25,8 +28,15 @@ public class AdapterOI implements EnviarSMS {
     }
 
     @Override
-    public void enviarSMS(String origem, String destino, String[] texto) {
-        System.out.print(origem + destino + texto);
-    }
+    public boolean sendSMS(SMS sms) {
+        String texto[] ;
+        
+        for(int i=0;sms.getTexto().length()>i;i++){
+           // texto= sms.getTexto().toCharArray();
+        }
+        //oi.enviarSMS(sms.getOrigem(), sms.getDestino(), texto);
+   return true; }
+
+    
 
 }

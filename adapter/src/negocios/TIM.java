@@ -9,7 +9,11 @@ package negocios;
  *
  * @author APLPoloNaval
  */
-public class TIM implements SMSsender{
+public class TIM extends SMS implements SMSsender{
+
+    public TIM(String destino, String origem, String texto) {
+        super(destino, origem, texto);
+    }
 
     @Override
     public boolean sendSMS(SMS sms) {
