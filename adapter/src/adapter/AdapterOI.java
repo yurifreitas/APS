@@ -25,13 +25,34 @@ public class AdapterOI implements SMSsender {
     public boolean sendSMS(SMS sms) {
        String mensagem = sms.getTexto();
        String vetsms[] = null;
-        System.out.print(sms);
-
+        int min=0 , lim=160,max=lim;
+        if (mensagem.length() % lim == 0) {
+            vetsms = new String[mensagem.length() / lim];
+            for (int i = 0; i < vetsms.length; i++) {
+                vetsms[i] = mensagem.substring(min, max);
+                min = max;
+                max += lim;
+            }
+        }else {
+            vetsms = new String[(mensagem.length() / lim) + 1];
+            for (int i = 0; i < (mensagem.length() / lim); i++) {
+                vetsms[i] = mensagem.substring(min, max);
+                min = max;
+                max += lim;
+            }
+        }
+        vetsms[vetsms.length - 1] = mensagem.substring(min, mensagem.length());
+            for (int i = 0; i < vetsms.length; i++) {
+                System.out.println("\n Destino: "+ sms.getDestino()+"\n Origem: "+sms.getOrigem()+"\n Texto: "+vetsms[i]);
         try {
             enviarsms.enviarSMS(sms.getDestino(), sms.getOrigem(), vetsms);
         } catch (Exception ex) {
             Logger.getLogger(AdapterOI.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }
+            
+
+      
         
      return true;
     }
