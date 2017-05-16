@@ -23,6 +23,8 @@ public class Main {
 
         AdapterTIM tim = new AdapterTIM(sms);
         tim.sendSMS(sms);
+        
+        
         AdapterOI oi = new AdapterOI(sms);
         oi.sendSMS(sms);
 

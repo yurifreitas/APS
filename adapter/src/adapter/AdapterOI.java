@@ -5,7 +5,9 @@
  */
 package adapter;
 
-import negocios.EnviarSMS;
+import java.util.ArrayList;
+import java.util.List;
+
 import negocios.OI;
 import negocios.SMS;
 import negocios.SMSsender;
@@ -29,10 +31,13 @@ public class AdapterOI implements SMSsender {
 
     @Override
     public boolean sendSMS(SMS sms) {
-        String texto[] ;
+        char letras []=null;
+        String texto;
         
         for(int i=0;sms.getTexto().length()>i;i++){
-           // texto= sms.getTexto().toCharArray();
+           letras = sms.getTexto().toCharArray();
+           texto=String.copyValueOf(letras);
+           System.out.print(texto);
         }
         //oi.enviarSMS(sms.getOrigem(), sms.getDestino(), texto);
    return true; }
