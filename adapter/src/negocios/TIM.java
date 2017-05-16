@@ -9,15 +9,14 @@ package negocios;
  *
  * @author APLPoloNaval
  */
-public class TIM extends SMS implements SMSsender{
+public class TIM  implements SMSsender{
 
-    public TIM(String destino, String origem, String texto) {
-        super(destino, origem, texto);
-    }
+  
 
     @Override
     public boolean sendSMS(SMS sms) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        System.out.println("ENVIADA TIM");
+        return true;
     }
     
 }

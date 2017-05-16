@@ -5,29 +5,38 @@
  */
 package adapter;
 
+import negocios.EnviarSMS;
 import negocios.SMS;
 import negocios.SMSsender;
+
 
 /**
  *
  * @author APLPoloNaval
  */
-public class AdapterTIM implements SMSsender {
+public class AdapterTIM implements EnviarSMS {
 
-    SMS sms;
+   private SMSsender smssender;
 
-    public AdapterTIM(SMS sms) {
-        this.sms = sms;
+    public AdapterTIM(SMSsender smssender) {
+        this.smssender = smssender;
     }
 
-    public void setSms(SMS sms) {
-        this.sms = sms;
-    }
 
     @Override
-    public boolean sendSMS(SMS sms) {
-        System.out.print(sms.getDestino() + "\n" + sms.getOrigem() + "\n" + sms.getTexto());
-        return true;
+    public void enviarSMS(String origem, String destino, String[] texto) throws Exception {
+        SMS sms = new SMS();
+        sms.setDestino(destino);
+        sms.setOrigem(origem);
+        String textos="";
+        for(String l : texto){
+            textos += l+ " ";
+        }
+        sms.setTexto(textos);
+        System.out.println(sms);
+        smssender.sendSMS(sms);
+        
+
     }
 
 }

@@ -15,6 +15,10 @@ public class SMS {
     private String origem;
     private String texto;
 
+    public SMS() {
+        
+    }
+
     public String getDestino() {
         return destino;
     }
@@ -47,7 +51,7 @@ public class SMS {
 
     @Override
     public String toString() {
-        return "SMS{" + "destino=" + destino + ", origem=" + origem + ", texto=" + texto + '}';
+        return "SMS\n" + " Destino = " + destino + "\n Origem = " + origem + "\n Texto = " + texto+"\n" ;
     }
 
 }

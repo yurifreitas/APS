@@ -5,43 +5,38 @@
  */
 package adapter;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import negocios.OI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocios.EnviarSMS;
 import negocios.SMS;
 import negocios.SMSsender;
 
-/**
- *
- * @author APLPoloNaval
- */
+
 public class AdapterOI implements SMSsender {
+    private EnviarSMS enviarsms;
 
-    SMS sms;
-    OI oi;
-
-    public AdapterOI(SMS sms) {
-        this.setSms(sms);
+    public AdapterOI(EnviarSMS enviarsms) {
+        this.enviarsms = enviarsms;
     }
 
-    public void setSms(SMS sms) {
-        this.sms = sms;
-    }
 
     @Override
     public boolean sendSMS(SMS sms) {
-        char letras []=null;
-        String texto;
-        
-        for(int i=0;sms.getTexto().length()>i;i++){
-           letras = sms.getTexto().toCharArray();
-           texto=String.copyValueOf(letras);
-           System.out.print(texto);
-        }
-        //oi.enviarSMS(sms.getOrigem(), sms.getDestino(), texto);
-   return true; }
+       String mensagem = sms.getTexto();
+       String vetsms[] = null;
+        System.out.print(sms);
 
+        try {
+            enviarsms.enviarSMS(sms.getDestino(), sms.getOrigem(), vetsms);
+        } catch (Exception ex) {
+            Logger.getLogger(AdapterOI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+     return true;
+    }
+
+ 
     
 
 }

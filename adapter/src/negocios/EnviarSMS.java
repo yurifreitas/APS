@@ -11,5 +11,7 @@ package negocios;
  */
 public interface EnviarSMS {
 
-    public void enviarSMS(String origem, String destino, String[] texto);
+    public void enviarSMS(String origem, String destino, String[] texto) throws Exception; 
+    
+    
 }
