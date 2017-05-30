@@ -14,33 +14,24 @@ import java.sql.SQLException;
  * @author APLPoloNaval
  */
 public class Conecao {
-    private String host;
-    private String porta;
-    private String usuario;
-    private String senha;
-    private String banco;
-    
-    
-    
-    public void Conecao(){
-        this.host = "localhost";
-        this.porta = "5432";
-        this.usuario = "postgres";
-        this.senha = "postgres";
-        this.banco = "cliente";
-        
+
+    private static String host = "localhost";
+    private static String database = "cliente";
+    private static String user = "postgres";
+    private static String port = "5432";
+    private static String password = "postgres";
+    private static Connection singleton = null;
+
+    public Conecao() {
+
     }
-     public Connection getConnection() {
-        String url = "jdbc:postgresql://" + this.host + ":" + this.porta + "/" + this.banco;
-        try {
-            System.out.println("OK");
-            return DriverManager.getConnection(url, this.usuario, this.senha);
-        } catch (SQLException ex) {
-            //Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Problema");
-            System.exit(0);
+
+    public static synchronized Connection getInstance() throws SQLException {
+        String url = "jdbc:postgresql://" + Conecao.host + ":" + Conecao.port + "/" + Conecao.database;
+        if (singleton == null) {
+            singleton = DriverManager.getConnection(url, Conecao.user, Conecao.password);
         }
-        return null;
+        return singleton;
+
     }
-    
 }

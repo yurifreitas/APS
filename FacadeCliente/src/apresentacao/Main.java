@@ -19,14 +19,9 @@ public class Main {
      */
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
-        
-        
-        
-        
-        Facade facade= new Facade();
+
+        Facade facade = new Facade();
         facade.cadastra();
     }
-    
-    
-    
+
 }
