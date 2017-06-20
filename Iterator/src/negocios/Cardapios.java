@@ -11,14 +11,15 @@ package negocios;
  */
 public class Cardapios {
     Menu breakFastMenu;
-    Menu dinerMenu;
+    Menu Sandubamenu;
     // coloquei um menu a mais...
     Menu coffeMenu;
     
 
-    public Cardapios(Menu pankakeMenu, Menu coffeMenu) {
+    public Cardapios(Menu pankakeMenu, Menu coffeMenu,Menu Sandubamenu) {
         this.breakFastMenu = pankakeMenu;
         this.coffeMenu = coffeMenu;
+        this.Sandubamenu = Sandubamenu;
     }
 
     public void printMenu() {
@@ -46,9 +47,11 @@ public class Cardapios {
 
         Iterator panqueca = this.breakFastMenu.createIterator();
         Iterator cafe = this.coffeMenu.createIterator();
+        Iterator Sanduba = this.Sandubamenu.createIterator();
         
         printMenu(panqueca);
         printMenu(cafe);
+        printMenu(Sanduba);
 
 
     }
