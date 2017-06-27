@@ -50,14 +50,30 @@ public class Main {
    
    Date d8 = new Date(5, 5, 2005);
     System.out.println(d8.toString().equals("05/05/2005"));
-    d8 = new Date(1, 10, 2001);
+   d8 = new Date(1, 10, 2001);
     System.out.println(d8.toString().equals("01/10/2001"));
      
-    Date d5 = new Date(1, 7, 2014);
+    Date d5 = new Date(1,7, 2014);
     Date d6 = new Date(1, 7, 2014);
     System.out.println(d5.equals(d6) == true);
     System.out.println(d5 +" "+ d6);
     System.out.println(d5.equals(new Date()) == false);
+    
+    Date d7 = new Date(23, 4, 2016);
+   
+   System.out.println(d5.after(d7) == false);
+    System.out.println(d7.after(d5) == true);
+    System.out.println(d5.before(d7) == true);
+    System.out.println(d7.before(d5) == false);
+    System.out.println(d7.before(d7) == false);
+    System.out.println(d7.after(d7) == false);
+
+    // lembrando que é imutável
+    System.out.println(d.day == 22);
+    System.out.println(d.month == 4);
+    System.out.println(d.year == 2016);
+
+
     
     
     
